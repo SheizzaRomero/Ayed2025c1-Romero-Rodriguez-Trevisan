@@ -1,20 +1,18 @@
-# 🐍Nombre del proyecto (darle un nombre significativo) 
+# TP1 - Problema 1
 
-Breve descripción del proyecto:
-
-Ejemplo: “Este es un script en el que se comparan algoritmos de ordenamiento. Permite [describir funcionalidades principales].
+Implementación y comparación de algoritmos de ordenamiento.
 
 ---
-## 🏗Arquitectura General
+## Arquitectura General
 
-Explica brevemente cómo está organizado el código (funciones y/o clases)
+En [modules](./modules) están las funciones que realizan los distintos ordenamientos.
 
-Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
+En [data](./data) están las gráficas de los resultados obtenidos de las comparaiones.
 
-El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
+El informe completo está disponible en [docs](./docs).
 
 ---
-## 📑Dependencias
+## Dependencias
 
 1. **Python 3.x**
 2. **matplotlib** (`pip install matplotlib`)
@@ -22,7 +20,7 @@ El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
 4. Dependencias listadas en requierements.txt
 
 ---
-## 🚀Cómo Ejecutar el Proyecto
+## Cómo Ejecutar el Proyecto
 1. **Clonar o descargar** el repositorio.
 
 2. **Crear y activar** un entorno virtual.
@@ -34,10 +32,11 @@ El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
    El archivo `requirements.txt` se encuentran en la carpeta [deps](./deps) del proyecto.
 
 ---
-## 🙎‍♀️🙎‍♂️Autores
+## Autores
 
-- Apellido y Nombre del primer integrante
-- Apellido y Nombre del primer integrante
+- Sheizza Romero
+- Esteban Rodriguez
+- Sergio Trevisán
 
 ---
 
