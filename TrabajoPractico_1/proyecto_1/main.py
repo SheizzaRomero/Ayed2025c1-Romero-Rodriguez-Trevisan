@@ -1,4 +1,5 @@
-import random,timeit
+import random
+import timeit
 import matplotlib.pyplot as plt
 from modules.burbuja import ordenamientoBurbuja
 
@@ -13,9 +14,13 @@ for n in enes:
     tiempos.append(tiempo)
     print('n: %(ene)4d - %(tiempo)d s' % {'ene':n,'tiempo':tiempo})   # simple salida por pantalla
 
-# dibujito con los pares (n,tiempo) obtenidos
+# Gráfico con los pares (n,tiempo) obtenidos
 figura,ejes = plt.subplots()
 ejes.plot(enes,tiempos,'bo')
+ejes.set_title ("Tiempo de ejecución del ordenamiento burbuja")
+ejes.xlabel ("Cantidad de elementos (n)")
+ejes.ylabel("Tiempo (s)")
+plt.grid()
 plt.show()
 
 print("* FIN")
