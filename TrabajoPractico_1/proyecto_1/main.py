@@ -18,8 +18,8 @@ for n in enes:
 figura,ejes = plt.subplots()
 ejes.plot(enes,tiempos,'bo')
 ejes.set_title ("Tiempo de ejecución del ordenamiento burbuja")
-ejes.xlabel ("Cantidad de elementos (n)")
-ejes.ylabel("Tiempo (s)")
+ejes.set_xlabel ("Cantidad de elementos (n)")
+ejes.set_ylabel("Tiempo (s)")
 plt.grid()
 plt.show()
 
