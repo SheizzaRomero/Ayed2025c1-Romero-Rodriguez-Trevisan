@@ -16,10 +16,10 @@ def particion (lista, primero, ultimo):
      return i + 1 #posicion final del pivote 
 
 if __name__ == "__main__":
-   ensayo = [random.randint (10000,99999) for i in range(500)]
-print (ensayo) 
-ordenamientoRapido (ensayo, 0, len(ensayo)- 1)
-print (ensayo)
+    ensayo = [random.randint (10000,99999) for i in range(500)]
+    print (ensayo) 
+    ordenamientoRapido (ensayo, 0, len(ensayo)- 1)
+    print (ensayo)
 
 
  
