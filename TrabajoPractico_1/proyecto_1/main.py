@@ -27,7 +27,7 @@ for n in enes:
 
 
     numero_quicksort = numeros[0:n].copy ()
-    medidor = timeit.Timer("ordenamientoRapido(numero_quicksort, 0, len(numero_quicksort)- 1)","from __main__ import ordenamientoRapido,numero_quicksort")
+    medidor = timeit.Timer("ordenamientoRapido(numero_quicksort)","from __main__ import ordenamientoRapido,numero_quicksort")
     tiempo = medidor.timeit(number=1)
     tiempos_quicksort.append (tiempo)
     print (" %(tiempo)f s" % {'tiempo':tiempo})
@@ -36,7 +36,8 @@ for n in enes:
 # Gráfico con los pares (n,tiempo) obtenidos
 figura,ejes = plt.subplots()
 ejes.plot(enes,tiempos,'bo-' , enes, tiempos_quicksort, 'go-', enes, tiempos_burbujacorta, 'mx-')
-ejes.set_title ("Tiempo de ejecución del ordenamiento burbujacorta")
+ejes.set_title ("Comparación de tiempos de ordenamiento")
+ejes.legend (["Burbuja", "Quicksort","BurbujaCorta"])
 ejes.set_xlabel ("Cantidad de elementos (n)")
 ejes.set_ylabel("Tiempo (s)")
 plt.grid()
