@@ -1,25 +1,36 @@
 import random 
 
-def ordenamientoRapido (lista, primero, ultimo):
+def ordenamientoRapido (unaLista):
+    ordenamientoRapidoAuxiliar (unaLista, 0, len(unaLista)-1)
+
+def ordenamientoRapidoAuxiliar (unaLista, primero, ultimo):
     if primero<ultimo:
-         p = particion (lista, primero, ultimo)
-         ordenamientoRapido (lista, primero, p - 1)
-         ordenamientoRapido (lista, p + 1, ultimo)
-def particion (lista, primero, ultimo):
-     pivote = lista[ultimo]
-     i = primero - 1
-     for j in range (primero, ultimo): #recore desde primero hasta antes del pivote
-         if lista [j] <= pivote:       #si el elemento el menor o igual al pivote, lo intercambiamos hacia la izq
-              i = i + 1
-              lista [i], lista [j] = lista [j], lista [i]
-     lista [i + 1], lista [ultimo] = lista [ultimo], lista [i + 1]
-     return i + 1 #posicion final del pivote 
+         puntoDivision = particion(unaLista,primero,ultimo)
+         ordenamientoRapidoAuxiliar(unaLista,primero,puntoDivision-1)
+         ordenamientoRapidoAuxiliar(unaLista,puntoDivision+1,ultimo)
 
-if __name__ == "__main__":
-    ensayo = [random.randint (10000,99999) for i in range(500)]
-    print (ensayo) 
-    ordenamientoRapido (ensayo, 0, len(ensayo)- 1)
-    print (ensayo)
+def particion (unaLista, primero, ultimo):
+     valorPivote = unaLista[primero]
+     marcaIzq = primero+1
+     marcaDer = ultimo
 
+     hecho = False
+     while not hecho:
+         
+         while marcaIzq <= marcaDer and unaLista[marcaIzq] <= valorPivote:
+           marcaIzq = marcaIzq + 1
+         while marcaDer >= marcaIzq and unaLista[marcaDer] >= valorPivote:
+           marcaDer = marcaDer -1
 
- 
+         if marcaDer < marcaIzq:
+           hecho = True
+         else:
+           unaLista [marcaIzq], unaLista[marcaDer] = unaLista[marcaDer], unaLista [marcaIzq]
+     unaLista[primero], unaLista[marcaDer] = unaLista[marcaDer], unaLista[primero]
+     return marcaDer
+     
+if __name__ == "__main__": 
+    unaLista = [random.randint(10000, 99999) for _ in range(500)]  
+    print (unaLista)      
+    ordenamientoRapido (unaLista)
+    print (unaLista)
