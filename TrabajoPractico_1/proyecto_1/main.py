@@ -35,8 +35,7 @@ for n in enes:
 
 # Gráfico con los pares (n,tiempo) obtenidos
 figura,ejes = plt.subplots()
-ejes.plot( enes, tiempos_quicksort, 'go-', enes, tiempos_burbujacorta, 'mx-')
-#ejes.plot(enes,tiempos,'bo-' , enes, tiempos_quicksort, 'go-', enes, tiempos_burbujacorta, 'mx-')
+ejes.plot(enes,tiempos,'bo-' , enes, tiempos_quicksort, 'go-', enes, tiempos_burbujacorta, 'mx-')
 ejes.set_title ("Tiempo de ejecución del ordenamiento burbujacorta")
 ejes.set_xlabel ("Cantidad de elementos (n)")
 ejes.set_ylabel("Tiempo (s)")
