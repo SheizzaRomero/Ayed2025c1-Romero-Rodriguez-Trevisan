@@ -18,7 +18,9 @@ def ordenamientoBurbujaCorta(unaLista):
         numero_pasada = numero_pasada - 1
 
 if __name__ == "__main__": 
-    ensayo = [random.randint(10000,99999) for i in range(500)]
-    print(ensayo)
+    CANTIDAD = 10
+    ensayo = [random.randint(10000,99999) for _ in range(CANTIDAD)]
+    if CANTIDAD < 15:
+        print(ensayo)
     ordenamientoBurbuja(ensayo)
     print(ensayo)
