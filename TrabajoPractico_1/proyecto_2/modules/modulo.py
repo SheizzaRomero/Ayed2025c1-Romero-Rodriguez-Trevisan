@@ -13,7 +13,7 @@ class Nodo:
         return self.__siguiente
 
     @siguiente.setter
-    def establecer_siguiente(self, p_elemento):
+    def _establecer_siguiente(self, p_elemento):
         self.__siguiente = p_elemento
 
     @property
@@ -21,8 +21,11 @@ class Nodo:
         return self.__anterior
 
     @anterior.setter
-    def establecer_anterior(self, p_elemento):
+    def _establecer_anterior(self, p_elemento):
         self.__anterior = p_elemento
+
+    def _intercambiar_punteros(self):
+        self.__anterior,self.__siguiente = self.__siguiente,self.__anterior
 
 class ListaDobleEnlazada:
     def __init__(self):
@@ -59,8 +62,8 @@ class ListaDobleEnlazada:
             for _ in range(posicion):
                 puntero = puntero.siguiente
             uno = Nodo(item, puntero, puntero.siguiente)
-            puntero.establecer_siguiente(uno)
-            puntero.siguiente.establecer_anterior(uno)
+            puntero._establecer_siguiente(uno)
+            puntero.siguiente._establecer_anterior(uno)
             self.__cantidad_elementos += 1
 
     def extraer(self, posicion=-1):
@@ -74,3 +77,25 @@ class ListaDobleEnlazada:
             self.__cola = uno.anterior
             self.__cantidad_elementos -= 1
         return uno.elemento   # OJO: falta mucho por implementar
+
+    def copiar(self):
+        lista_nueva = ListaDobleEnlazada()
+        puntero = self.__cabeza
+        while puntero is not None:
+            lista_nueva.insertar(puntero.elemento)
+            puntero = puntero.siguiente
+        return lista_nueva
+
+    def invertir(self):
+        if self.__cantidad_elementos > 1:
+            self.__cabeza = self.__cola
+            puntero = self.__cabeza
+            while puntero.anterior is not None:
+                puntero._intercambiar_punteros()
+                puntero = puntero.siguiente
+            else:
+                puntero._intercambiar_punteros()
+            self.__cola = puntero
+
+    def concatenar(p_lista):
+        pass
