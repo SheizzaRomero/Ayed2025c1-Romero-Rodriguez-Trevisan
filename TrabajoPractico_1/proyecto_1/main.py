@@ -1,6 +1,6 @@
 import random
 import timeit
-from matplotlib import pyplot as plt
+from matplotlib import pyplot as plt 
 from modules.burbuja import ordenamientoBurbuja, ordenamientoBurbujaCorta
 from modules.quicksort import ordenamientoRapido
 
