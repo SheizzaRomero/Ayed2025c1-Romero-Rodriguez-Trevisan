@@ -1,6 +1,8 @@
 # Aplicación principal
 import time
-import matplotlib. pyplot as plt
+import matplotlib.pyplot as plt
+from modules import ListaDobleEnlazada 
+
 def medir_tiempos(funcion, N_valores):
     tiempos = []
     for N in N_valores:
