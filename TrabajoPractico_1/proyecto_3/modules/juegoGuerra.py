@@ -1,7 +1,6 @@
 # modules/juegoGuerra.py
 import random
 from modules.mazo import Mazo
-from modules.carta import Carta
 
 class JuegoGuerra:
     def __init__(self, random_seed=None):
