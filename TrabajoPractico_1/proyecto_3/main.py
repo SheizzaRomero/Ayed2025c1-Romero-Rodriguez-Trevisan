@@ -1,9 +1,12 @@
-# main.py
-from modules.juegoGuerra import JuegoGuerra
+from modules.moduloguerra import JuegoGuerra
 
 if __name__ == "__main__":
-    juego = JuegoGuerra(random_seed=314)
-    juego.iniciar_juego(ver_partida=False)
+    juego = JuegoGuerra(random_seed=42)
+    juego.iniciar_juego(ver_partida=True)
+
+# Mostrar resultados
     print(f"Turnos jugados: {juego.turnos_jugados}")
-    print(f"Ganador: {juego.ganador}")
-    print(f"Empate: {juego.empate}")
+    if juego.empate:
+        print("El juego terminó en empate.")
+    else:
+        print(f"El ganador es: {juego.ganador}")
