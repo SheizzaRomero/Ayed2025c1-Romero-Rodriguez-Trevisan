@@ -6,7 +6,7 @@ class DequeEmptyError(Exception):
     pass
 
 class Nododato:
-    """Nodo que representa una dato en una lista doblemente enlazada."""
+    """Nodo que representa un dato en una lista doblemente enlazada."""
     def __init__(self, dato=None):
         self.dato = dato
         self.siguiente = None
@@ -47,7 +47,7 @@ class Mazo:
         return self._size
 
     def poner_carta_arriba(self, dato):
-        """Coloca una dato al principio del mazo (arriba)."""
+        """Coloca un dato al principio del mazo (arriba)."""
         nuevo_nodo = Nododato(dato)
         if self.cabeza is None:
             self.cabeza = self.cola = nuevo_nodo
@@ -58,7 +58,7 @@ class Mazo:
         self._size += 1
 
     def poner_carta_abajo(self, dato):
-        """Coloca una dato al final del mazo (abajo)."""
+        """Coloca un dato al final del mazo (abajo)."""
         nuevo_nodo = Nododato(dato)
         if self.cola is None:
             self.cabeza = self.cola = nuevo_nodo
@@ -69,7 +69,7 @@ class Mazo:
         self._size += 1
 
     def sacar_carta_arriba(self):
-        """Saca una dato del principio del mazo (arriba)."""
+        """Saca un dato del principio del mazo (arriba)."""
         if self.cabeza is None:
             raise DequeEmptyError("El mazo está vacío.")
         dato = self.cabeza.dato
@@ -82,7 +82,7 @@ class Mazo:
         return dato
 
     def sacar_dato_abajo(self):
-        """Saca una dato del final del mazo (abajo)."""
+        """Saca un dato del final del mazo (abajo)."""
         if self.cola is None:
             raise DequeEmptyError("El mazo está vacío.")
         dato = self.cola.dato
