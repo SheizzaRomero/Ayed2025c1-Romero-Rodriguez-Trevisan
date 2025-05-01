@@ -6,7 +6,7 @@ Created on Sun Aug 21 11:23:53 2022
 """
 
 
-from modules.moduloguerra import JuegoGuerra
+from juego_guerra import JuegoGuerra
 import unittest
 
 
@@ -83,3 +83,4 @@ class TestJuegoGuerra(unittest.TestCase):
     
 if __name__ == '__main__':
     unittest.main()
+    

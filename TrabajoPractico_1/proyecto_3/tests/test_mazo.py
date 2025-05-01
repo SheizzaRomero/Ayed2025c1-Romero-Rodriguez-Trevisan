@@ -6,8 +6,8 @@ Created on Sun Aug 21 11:23:53 2022
 """
 
 
-from modules.moduloguerra import Carta
-from modules.moduloguerra import Mazo
+from carta import Carta
+from mazo import Mazo
 import unittest
 
 
