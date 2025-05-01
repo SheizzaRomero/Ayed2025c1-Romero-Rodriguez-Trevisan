@@ -12,6 +12,10 @@ class Nodo:
         return self.__elemento
 
     @property
+    def dato(self):
+        return self.__elemento
+
+    @property
     def siguiente(self):
         return self.__siguiente
 
@@ -51,9 +55,28 @@ class ListaDobleEnlazada:
             cadena = ' - '.join(elementos)
         return cadena
 
+    def __iter__(self):
+        self.__puntero = self.__cabeza
+        return self
+
+    def __next__(self):
+        if self.__puntero is None:
+            raise StopIteration()
+        dato = self.__puntero.elemento
+        self.__puntero = self.__puntero.siguiente
+        return dato
+
     @property
-    def _nodo_cabeza(self):
+    def cabeza(self):
         return self.__cabeza
+
+    @property
+    def cola(self):
+        return self.__cola
+
+    @property
+    def tamanio(self):
+        return self.__cantidad_elementos
 
     def esta_vacia(self) -> bool:
         return self.__cantidad_elementos == 0
@@ -147,7 +170,7 @@ class ListaDobleEnlazada:
 
     def concatenar(self, p_lista):
         if not p_lista.esta_vacia():
-            puntero = p_lista._nodo_cabeza
+            puntero = p_lista.cabeza
             for _ in range(len(p_lista)):
                 self.agregar_al_final(puntero.elemento)
                 puntero = puntero.siguiente
