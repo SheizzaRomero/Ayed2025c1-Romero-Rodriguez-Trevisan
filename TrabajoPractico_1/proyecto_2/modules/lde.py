@@ -19,11 +19,11 @@ class Nodo:
     def anterior(self):
         return self.__anterior
 
-    def _establecer_siguiente(self, p_elemento):
-        self.__siguiente = p_elemento
+    def _establecer_siguiente(self, p_nodo):
+        self.__siguiente = p_nodo
 
-    def _establecer_anterior(self, p_elemento):
-        self.__anterior = p_elemento
+    def _establecer_anterior(self, p_nodo):
+        self.__anterior = p_nodo
 
     def _intercambiar_punteros(self):
         self.__anterior,self.__siguiente = self.__siguiente,self.__anterior
@@ -98,6 +98,8 @@ class ListaDobleEnlazada:
             self.__cantidad_elementos += 1
 
     def extraer(self, posicion=-1) -> str:   # valor negativo extrae '__cola'
+        if self.__cantidad_elementos == 0:
+            raise LookupError()
         if not isinstance(posicion, int):
             raise TypeError()
         if posicion >= self.__cantidad_elementos:
@@ -106,11 +108,17 @@ class ListaDobleEnlazada:
         if posicion == 0:   # extraer '__cabeza'
             uno = self.__cabeza
             self.__cabeza = uno.siguiente
-            self.__cabeza._establecer_anterior(None)
+            if self.__cabeza is None:
+                self.__cola = None
+            else:
+                self.__cabeza._establecer_anterior(None)
         elif posicion < 0 or posicion == self.__cantidad_elementos-1:   # extraer '__cola'
             uno = self.__cola
             self.__cola = uno.anterior
-            self.__cola._establecer_siguiente(None)
+            if self.__cola is None:
+                self.__cabeza = None
+            else:
+                self.__cola._establecer_siguiente(None)
         else:
             uno = self.__cabeza
             for _ in range(posicion):
