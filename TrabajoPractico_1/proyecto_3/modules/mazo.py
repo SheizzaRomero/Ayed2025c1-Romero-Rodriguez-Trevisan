@@ -16,10 +16,13 @@ class Mazo(ListaDobleEnlazada):
             raise TypeError()
         self.agregar_al_inicio(p_carta)
 
-    def sacar_carta_arriba(self):
+    def sacar_carta_arriba(self, mostrar=False):
         if self.esta_vacia():
             raise DequeEmptyError()
-        return self.extraer(0)
+        carta = self.extraer(0)
+        if mostrar:
+            carta.visible = True
+        return carta
 
     def poner_carta_abajo(self, p_carta):
         if not isinstance(p_carta, Carta):
