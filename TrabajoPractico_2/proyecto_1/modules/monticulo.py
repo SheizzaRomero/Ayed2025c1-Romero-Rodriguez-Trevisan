@@ -1,73 +1,61 @@
 class MonticuloBinario:
     def __init__ (self):
-        self.listaMonticulo = [0]
-        self.tamanoActual = 0
+        self.__listaMonticulo = [0]
+        self.__tamanoActual = 0
 
-    def infiltrarArriba (self,i):
-        while i // 2 > 0:
-            if self.listaMonticulo [i] < self.listaMonticulo [i // 2]:
-                tmp = self.listaMonticulo [i // 2]
-                self.listaMonticulo [i // 2] =  self.listaMonticulo [i]
-                self.listaMonticulo [i] =  tmp
-            i = i // 2
+    def __infiltrarArriba(self, i):
+        padre = i // 2
+        while padre > 0:
+            if self.__listaMonticulo[i] < self.__listaMonticulo[padre]:
+                self.__listaMonticulo[padre],self.__listaMonticulo[i] = self.__listaMonticulo[i],self.__listaMonticulo[padre]
+            i = padre
+            padre = i // 2
+
+    def insertar(self, elemento):
+        self.__listaMonticulo.append(elemento)
+        self.__tamanoActual += 1
+        self.__infiltrarArriba(self.__tamanoActual)
+
+    def __hijoMenor(self, i):
+        hijo_izquierdo = i * 2
+        hijo_derecho = hijo_izquierdo + 1
+        hijo_menor = hijo_izquierdo
+        if hijo_derecho <= self.__tamanoActual:
+            if self.__listaMonticulo[hijo_derecho] < self.__listaMonticulo[hijo_izquierdo]:
+                hijo_menor = hijo_derecho
+        return hijo_menor
+
+    def __infiltrarAbajo(self, i):
+         while (i * 2) <= self.__tamanoActual:
+            hm = self.__hijoMenor(i)
+            if self.__listaMonticulo[hm] < self.__listaMonticulo[i]:
+                self.__listaMonticulo[i],self.__listaMonticulo[hm] = self.__listaMonticulo[hm],self.__listaMonticulo[i]
+            i = hm
+
+    def eliminarMinimo(self):
+        valor_sacado = self.__listaMonticulo[1]
+        self.__listaMonticulo[1] = self.__listaMonticulo[self.__tamanoActual]
+        self.__tamanoActual -= 1
+        self.__listaMonticulo.pop()
+        self.__infiltrarAbajo(1)
+        return valor_sacado
+
+    def construirMonticulo(self,unaLista):
+        for cosa in unaLista:
+            self.insertar(cosa)
 
     def __str__(self):
-        lista =  []
-        for cosa in self.listaMonticulo [1:]:
-            lista.append (str(cosa))
-        return ' - '.join (lista)
+        lista = []
+        for cosa in self.__listaMonticulo[1:]:
+            lista.append(repr(cosa))
+        return ' - '.join(lista)
     
     def __len__ (self):
         return self.tamanoActual
-    
-    def __iter__(self): 
-        self.__puntero = 1 
-        return self
-    
-    def __next__(self):
-        if self.__puntero == self.tamanoActual - 1:
-            raise StopIteration()
-        dato = self.listaMonticulo [self.__puntero]
-        self.__puntero = self.__puntero + 1
-        return dato
-    
-    def insertar (self, k):
-        self.listaMonticulo.append (k)
-        self.tamanoActual = self.tamanoActual + 1 
-        self.infiltrarArriba (self.tamanoActual)
 
-    def infiltrarAbajo(self,i):
-         while (i * 2) <= self.tamanoActual:
-            hm = self.hijoMin(i)
-            if self.listaMonticulo[i] > self.listaMonticulo[hm]:
-                tmp = self.listaMonticulo[i]
-                self.listaMonticulo[i] = self.listaMonticulo[hm]
-                self.listaMonticulo[hm] = tmp
-            i = hm
-
-    def hijoMin(self,i):          
-        if i * 2 + 1 > self.tamanoActual:
-            return i * 2
-        else:
-            if self.listaMonticulo[i*2] < self.listaMonticulo[i*2+1]:
-                return i * 2
-            else:
-                return i * 2 + 1
-        
-    def eliminarMinimo (self):
-        valorSacado = self.listaMonticulo [1]
-        self.listaMonticulo [1] = self.listaMonticulo [self.tamanoActual]
-        self.tamanoActual = self.tamanoActual - 1
-        self.listaMonticulo.pop ()
-        self.infiltrarAbajo (1)
-        return valorSacado
-    
-    def construirMonticulo(self,unaLista):
-        i = len(unaLista) // 2
-        self.tamanoActual = len(unaLista)
-        self.listaMonticulo = [0] + unaLista[:]
-        while (i > 0):
-            self.infiltrarAbajo(i)
-            i = i - 1
-if __name__ == "__main__": 
-    pass 
+if __name__ == "__main__":
+    print('* PRUEBA: inicio')
+    monticulo = MonticuloBinario()
+    monticulo.construirMonticulo([45,12,34,6,7,98,67,1])
+    print(monticulo)
+    print('* PRUEBA: fin')
