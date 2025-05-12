@@ -1,4 +1,5 @@
 class MonticuloBinario:
+    """MonticuloBinario: base para la cola de prioridad (triaje)"""
     def __init__ (self):
         self.__listaMonticulo = [0]
         self.__tamanoActual = 0
