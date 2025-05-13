@@ -34,12 +34,12 @@ class MonticuloBinario:
             i = hm
 
     def eliminarMinimo(self):
-        valor_sacado = self.__listaMonticulo[1]
+        elemento = self.__listaMonticulo[1]
         self.__listaMonticulo[1] = self.__listaMonticulo[self.__tamanoActual]
         self.__tamanoActual -= 1
         self.__listaMonticulo.pop()
         self.__infiltrarAbajo(1)
-        return valor_sacado
+        return elemento
 
     def construirMonticulo(self,unaLista):
         for cosa in unaLista:

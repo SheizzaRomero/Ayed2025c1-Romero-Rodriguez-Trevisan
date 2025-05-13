@@ -48,4 +48,4 @@ class Paciente:
         return cad
 
     def __repr__(self):
-        return f"{self.__nombre} {self.__apellido} - riesgo({self.__riesgo})"
+        return f"{self.__nombre} {self.__apellido} ({self.__riesgo},{self.__orden_de_llegada})"
