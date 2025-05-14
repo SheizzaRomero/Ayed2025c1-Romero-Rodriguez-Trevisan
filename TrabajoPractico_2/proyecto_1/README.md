@@ -1,44 +1,28 @@
-# 🐍Nombre del proyecto (darle un nombre significativo) 
+# Sala de emergencia
 
-Breve descripción del proyecto:
-
-Ejemplo: “Este es un script en el que se comparan algoritmos de ordenamiento. Permite [describir funcionalidades principales].
+Implementación de una solución para el Problema 1 del TP2.
 
 ---
-## 🏗Arquitectura General
+## Arquitectura General
 
-Explica brevemente cómo está organizado el código (funciones y/o clases)
+En la carpeta [modules](./modules) hay tres archivos:
 
-Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
+* monticulo.py  
+Se implementa la clase MonticuloBinario con las funciones necesarias para la estructura de un montículo binario de mínima
 
-El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
+* paciente.py  
+Se implemnta la clase Paciente; allí se tiene la información del paciente (nombre, nivel de riesgo, orden de ingreso a la sala)
 
----
-## 📑Dependencias
-
-1. **Python 3.x**
-2. **matplotlib** (`pip install matplotlib`)
-3. listar dependencias principales
-4. Dependencias listadas en requierements.txt
+* triaje.py  
+En este módulo se define la clase SalaEmergencia que lleva adelante la gestión de la atención de los pacientes según el riesgo de la dolencia y el orden de ingreso a la sala.
 
 ---
-## 🚀Cómo Ejecutar el Proyecto
-1. **Clonar o descargar** el repositorio.
-
-2. **Crear y activar** un entorno virtual.
-
-3. **Instalar las dependencias**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-   El archivo `requirements.txt` se encuentran en la carpeta [deps](./deps) del proyecto.
+## Ejecución del proyecto
+Ejecutar el módulo 'triaje.py'; el script definido ejecuta las tareas relevantes de la "sala de emergencias"
 
 ---
-## 🙎‍♀️🙎‍♂️Autores
+## Autores
 
-- Apellido y Nombre del primer integrante
-- Apellido y Nombre del primer integrante
-
----
-
-> **Consejo**: Mantén el README **actualizado** conforme evoluciona el proyecto, y elimina (o añade) secciones según necesites. Esta plantilla es sólo un punto de partida general.
+- Sheizza Romero
+- Esteban Rodriguez
+- Sergio Trevisan

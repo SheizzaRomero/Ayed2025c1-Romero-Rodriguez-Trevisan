@@ -52,7 +52,7 @@ class MonticuloBinario:
         return ' - '.join(lista)
     
     def __len__ (self):
-        return self.tamanoActual
+        return self.__tamanoActual
 
 if __name__ == "__main__":
     print('* PRUEBA: inicio')
