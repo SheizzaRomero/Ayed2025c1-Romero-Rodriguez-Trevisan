@@ -18,7 +18,7 @@ En este módulo se define la clase SalaEmergencia que lleva adelante la gestión
 
 ---
 ## Ejecución del proyecto
-Ejecutar el módulo 'triaje.py'; el script definido ejecuta las tareas relevantes de la "sala de emergencias"
+Ejecutar el módulo 'triaje.py'; el script ejecuta las tareas relevantes de la "sala de emergencias"
 
 ---
 ## Autores
