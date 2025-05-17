@@ -1,48 +1,46 @@
 class NodoArbol:
-    def __init__(self,clave,valor,izquierdo=None, derecho=None, padre=None):
-        self.clave = clave
-        self.cargaUtil = valor
-        self.hijoIzquierdo = izquierdo
-        self.hijoDerecho = derecho
-        self.padre = padre
+    def __init__(self, clave, valor, izquierdo=None, derecho=None, padre=None):
+        self.__clave = clave
+        self.__cargaUtil = valor
+        self.__hijoIzquierdo = izquierdo
+        self.__hijoDerecho = derecho
+        self.__padre = padre
 
     def tieneHijoIzquierdo(self):
-        return self.hijoIzquierdo
+        return self.__hijoIzquierdo
 
     def tieneHijoDerecho(self):
-        return self.hijoDerecho
+        return self.__hijoDerecho
 
     def esHijoIzquierdo(self):
-        return self.padre and self.padre.hijoIzquierdo == self
+        return self.__padre and self.__padre.__hijoIzquierdo == self
 
     def esHijoDerecho(self):
-        return self.padre and self.padre.hijoDerecho == self
+        return self.__padre and self.__padre.__hijoDerecho == self
 
     def esRaiz(self):
-        return not self.padre
+        return not self.__padre
 
     def esHoja(self):
-        return not (self.hijoDerecho or self.hijoIzquierdo)
+        return not (self.__hijoDerecho or self.__hijoIzquierdo)
 
     def tieneAlgunHijo(self):
-        return self.hijoDerecho or self.hijoIzquierdo
+        return self.__hijoDerecho or self.__hijoIzquierdo
 
     def tieneAmbosHijos(self):
-        return self.hijoDerecho and self.hijoIzquierdo
+        return self.__hijoDerecho and self.__hijoIzquierdo
 
-    def reemplazarDatoDeNodo(self,clave,valor,hizq,hder):
-        self.clave = clave
-        self.cargaUtil = valor
-        self.hijoIzquierdo = hizq
-        self.hijoDerecho = hder
+    def reemplazarDatoDeNodo(self, clave, valor, hizq, hder):
+        self.__clave = clave
+        self.__cargaUtil = valor
+        self.__hijoIzquierdo = hizq
+        self.__hijoDerecho = hder
         if self.tieneHijoIzquierdo():
-            self.hijoIzquierdo.padre = self
+            self.__hijoIzquierdo.__padre = self
         if self.tieneHijoDerecho():
-            self.hijoDerecho.padre = self
-
+            self.__hijoDerecho.padre = self
 
 class ArbolBinarioBusqueda_AVL:
-
     def __init__(self):
         self.raiz = None
         self.tamano = 0
