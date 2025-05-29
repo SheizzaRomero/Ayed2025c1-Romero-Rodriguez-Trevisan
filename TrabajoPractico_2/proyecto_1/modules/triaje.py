@@ -1,9 +1,10 @@
 # archivo: triaje.py
 
+import msvcrt
 import monticulo, paciente as pac
 
 class SalaEmergencia:
-    """SalaEmergencia: administra una cola de acuerdo a prioridad y orden de llegada"""
+    """SalaEmergencia: administra una cola de acuerdo a la prioridad y el orden de llegada"""
     def __init__(self):
         self.__cola = monticulo.MonticuloBinario()
 
@@ -24,28 +25,25 @@ class SalaEmergencia:
 if __name__ == '__main__':
     print('* PRUEBA: inicio')
 
+    print ('instrucciones:')
+    print('- I : ingresa un paciente')
+    print('- A : se atiende un paciente')
+    print('- cualquier otra tecla sale de la prueba')
+    print('---')
+
     salita = SalaEmergencia()
-
-    print('\n...ingresan cinco pacientes')
-    for _ in range(5):
-        p = pac.Paciente()
-        print(str(p))
-        salita.ingresarPaciente(p)
-
-    print('\n...se atiende un paciente')
-    print(str(salita.atenderPaciente()))
-
-    print('\n...se atiende otro paciente')
-    print(str(salita.atenderPaciente()))
-
-    print('\n...ingresa un paciente')
-    p = pac.Paciente()
-    print(str(p))
-    salita.ingresarPaciente(p)
-
-    print('\n...se atiende un tercer paciente')
-    print(str(salita.atenderPaciente()))
-
-    print('\n...cantidad de pacientes esperando:', salita.pacientesEsperando)
+    continuar = True
+    while continuar:
+        tecla = msvcrt.getch()
+        if tecla == b'I' or tecla == b'i':   # ingresa un paciente
+            p = pac.Paciente()
+            print('ingresa paciente:', str(p))
+            salita.ingresarPaciente(p)
+        elif tecla == b'A' or tecla == b'a':   # se atiende un paciente
+            print('paciente atendido:', str(salita.atenderPaciente()))
+        else:
+            continuar = False
+        print('pacientes esperando:', salita.pacientesEsperando)
+        print('---')
 
     print('* PRUEBA: fin')
