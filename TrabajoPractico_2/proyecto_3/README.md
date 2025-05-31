@@ -1,44 +1,26 @@
-# 🐍Nombre del proyecto (darle un nombre significativo) 
+# Peligro Noticias
 
-Breve descripción del proyecto:
+Una solución para el tercer problema de TP2:
 
-Ejemplo: “Este es un script en el que se comparan algoritmos de ordenamiento. Permite [describir funcionalidades principales].
+Se implementan las clases Grafo y Vertice y para responder a las consignas, desde "main.py", se cargan los datos ofrecidos en "aldeas.txt" y se ejecuta el algoritmo de Prim para obtener la solución.
 
 ---
-## 🏗Arquitectura General
+## Arquitectura General
 
-Explica brevemente cómo está organizado el código (funciones y/o clases)
+En [modules](./modules) se encuentra "grafo.py" donde se implementan las clases Grafo y Vertice.
 
-Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
+Los datos ofrecidos con la información de las aldeas y sus conexiones están en el archivo "aldeas.txt" en la carpeta [data](./data) del proyecto.
 
 El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
 
 ---
-## 📑Dependencias
+## Cómo Ejecutar el Proyecto
 
-1. **Python 3.x**
-2. **matplotlib** (`pip install matplotlib`)
-3. listar dependencias principales
-4. Dependencias listadas en requierements.txt
+Ejecutar el script "main.py" en la carpeta principal del proyecto.
 
 ---
-## 🚀Cómo Ejecutar el Proyecto
-1. **Clonar o descargar** el repositorio.
+## Autores
 
-2. **Crear y activar** un entorno virtual.
-
-3. **Instalar las dependencias**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-   El archivo `requirements.txt` se encuentran en la carpeta [deps](./deps) del proyecto.
-
----
-## 🙎‍♀️🙎‍♂️Autores
-
-- Apellido y Nombre del primer integrante
-- Apellido y Nombre del primer integrante
-
----
-
-> **Consejo**: Mantén el README **actualizado** conforme evoluciona el proyecto, y elimina (o añade) secciones según necesites. Esta plantilla es sólo un punto de partida general.
+- Sheizza Romero
+- Esteban Rodriguez
+- Sergio Trevisán
