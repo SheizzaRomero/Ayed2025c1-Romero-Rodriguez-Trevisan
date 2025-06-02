@@ -11,13 +11,13 @@ class Vertice:
         # return str (self.__id) + ' conectada a: ' + str ([x.__id for x in self.__conectadoA])
 
     def obtenerConexiones(self):
-        return self.__conexiones.keys()
+        return list(self.__conexiones.keys())
 
     def obtenerId(self):
         return self.__id
 
     def obtenerPonderacion(self, vecino):
-        return self.__conexiones[vecino]
+        return self.__conexiones.get(vecino)
 
 class Grafo:
     def __init__(self):
@@ -27,29 +27,28 @@ class Grafo:
         return len(self.__vertices)
 
     def agregarVertice(self, clave):
-        nuevo = Vertice(clave)
-        self.__vertices[clave] = nuevo
-        return nuevo
+        if clave not in self.__vertices:
+            nuevo_vertice = Vertice(clave)
+            self.__vertices[clave] = nuevo_vertice
+        return self.__vertices[clave]
 
-    def obtenerVertice(self, n):
-        if n in self.__vertices:
-            return self.__vertices[n]
-        else:
-            return None
+    def obtenerVertice(self, clave):
+        return self.__vertices.get(clave)
 
-    def __contains__(self, n):
-        return n in self.__vertices
+    def __contains__(self, clave):
+        return clave in self.__vertices
 
-    def agregarArista(self, desde, hasta, ponderacion = 0):
-        if desde not in self.__vertices:
-            nv = self.agregarVertice(desde)
-        if hasta not in self.__vertices:
-            nv = self.agregarVertice(hasta)
-        self.__vertices[desde].agregarVecino(self.__vertices[hasta],ponderacion)
+    def agregarArista(self, desde_clave, hasta_clave, ponderacion = 0):
+        if desde_clave not in self.__vertices:
+            self.agregarVertice(desde_clave)
+        if hasta_clave not in self.__vertices:
+            self.agregarVertice(hasta_clave)
+        vertice_desde = self.__vertices[desde_clave]
+        vertice_hasta = self.__vertices[hasta_clave]
 
     def obtenerVertices(self):
         """Devuelve una lista con las claves (aldeas)"""
-        return self.__vertices.keys()
+        return list(self.__vertices.keys())
 
     def __iter__(self):
         return iter(self.__vertices.values())
