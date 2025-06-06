@@ -15,6 +15,11 @@ def main():
     print("Temperaturas guardadas:")
     print ("Maximo del rango" , db.max_temp_rango(date (2023,7,1), date (2023,9,1) ))
     
+    print("Listado de temperaturas:")
+    for linea in db.devolver_temperaturas(date(2023,6,1), date(2023,9,1)):
+        print(linea)
+
+    print("Cantidad de muestras:", db.cantidad_muestras())
 
 if __name__ == "__main__":
    main ()

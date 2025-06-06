@@ -1,6 +1,7 @@
 
 from modules.AVL import ArbolBinarioBusqueda_AVL
-from datetime import timedelta
+from datetime import datetime, timedelta
+
 
 class Temperaturas_DB:
     def __init__(self):
@@ -52,7 +53,14 @@ class Temperaturas_DB:
             pass
 
     def devolver_temperaturas (self, fecha1, fecha2):
-        pass
+        resultados = []
+        fecha = fecha1
+        while fecha <= fecha2:
+            if fecha in self.arbol:
+                temp = self.arbol[fecha]
+                resultados.append(fecha.strftime("%d/%m/%Y") + f":{temp} °C ")
+            fecha += timedelta(1)
+        return resultados
 
     def cantidad_muestras (self):
         return len (self.arbol)
