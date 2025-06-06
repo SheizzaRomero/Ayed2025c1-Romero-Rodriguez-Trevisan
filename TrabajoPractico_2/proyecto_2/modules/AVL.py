@@ -104,7 +104,7 @@ class NodoArbol:
             actual = actual.hijoIzquierdo
         return actual    
     
-    def __iter__(self):
+    def __iter__(self): #El código para un iterador inorden de un árbol binario
         if self.tieneHijoIzquierdo():
            for elem in self.hijoIzquierdo:
                 yield elem
