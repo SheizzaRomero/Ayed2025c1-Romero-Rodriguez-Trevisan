@@ -1,22 +1,23 @@
 # archivo: triaje.py
 
 import msvcrt
-import monticulo, paciente as pac
+from . coladeprioridad import ColaDePrioridad
+from . import paciente as pac 
 
 class SalaEmergencia:
     """SalaEmergencia: administra una cola de acuerdo a la prioridad y el orden de llegada"""
     def __init__(self):
-        self.__cola = monticulo.MonticuloBinario()
+        self.__cola = ColaDePrioridad()
 
     def ingresarPaciente(self, p_paciente:pac.Paciente=None):
         """ingresarPaciente: ingresa un nuevo paciente a la sala"""
         if p_paciente is None:
             p_paciente = pac.Paciente()
-        self.__cola.insertar(p_paciente)
+        self.__cola.agregar(p_paciente)
 
     def atenderPaciente(self) -> pac.Paciente:
         """atenderPaciente: un paciente es atendido; se lo quita de la cola"""
-        return self.__cola.eliminarMinimo()
+        return self.__cola.sacar()
 
     @property
     def pacientesEsperando(self) -> int:

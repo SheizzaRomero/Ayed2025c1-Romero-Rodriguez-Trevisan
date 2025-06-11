@@ -5,10 +5,11 @@ Sala de emergencias
 
 import time, datetime, random
 from modules import paciente as pac
+from modules.triaje import SalaEmergencia
 
 n = 20  # cantidad de ciclos de simulación
 
-cola_de_espera = list()
+sala = SalaEmergencia()
 
 # Ciclo que gestiona la simulación
 for i in range(n):
@@ -18,18 +19,19 @@ for i in range(n):
     print('-*-'*15)
     print('\n', fecha_y_hora, '\n')
 
-    # Se crea un paciente un paciente por segundo
+    # Se crea un paciente por segundo
     # La criticidad del paciente es aleatoria
     paciente = pac.Paciente()
-    cola_de_espera.append(paciente)
+    print ('Se crea un paciente:', paciente)
+    sala.ingresarPaciente(paciente)
 
     # Atención de paciente en este ciclo: en el 50% de los casos
-    if random.random() < 0.5:
+    if random.random() < 0.5 and sala.pacientesEsperando > 0:
         # se atiende paciente que se encuentra al frente de la cola
-        paciente_atendido = cola_de_espera.pop(0)
-        print('*'*40)
+        paciente_atendido = sala.atenderPaciente()
+        print('*' * 40)
         print('Se atiende el paciente:', paciente_atendido)
-        print('*'*40)
+        print('*' * 40)
     else:
         # se continúa atendiendo paciente de ciclo anterior
         pass
@@ -37,9 +39,8 @@ for i in range(n):
     print()
 
     # Se muestran los pacientes restantes en la cola de espera
-    print('Pacientes que faltan atenderse:', len(cola_de_espera))
-    for paciente in cola_de_espera:
-        print('\t', paciente)
+    print()
+    print('Pacientes que faltan atenderse:', sala.pacientesEsperando) 
 
     print()
     print('-*-'*15)
