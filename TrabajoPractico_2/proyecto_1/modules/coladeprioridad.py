@@ -12,9 +12,3 @@ class ColaDePrioridad:
 
     def __len__ (self): #devuelve la cantidad de elementos en la cola 
         return len (self.__monticulo)
-    
-    def __str__(self): #para ver el contenido de la cola 
-        return str (self.__monticulo)
-
-
-

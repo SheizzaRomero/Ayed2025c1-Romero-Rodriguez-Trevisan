@@ -48,7 +48,7 @@ class Temperaturas_DB:
     # Opcional: si querés borrar una temperatura
     def borrar_temperatura(self, fecha):
         try:
-            del self.arbol[fecha]
+            del(self.arbol[fecha])
         except KeyError:
             pass
 
@@ -64,3 +64,6 @@ class Temperaturas_DB:
 
     def cantidad_muestras (self):
         return len (self.arbol)
+    
+    def __delitem__(self, clave):
+        self.arbol.remover( self.arbol._obtener(clave, self.arbol.raiz) )

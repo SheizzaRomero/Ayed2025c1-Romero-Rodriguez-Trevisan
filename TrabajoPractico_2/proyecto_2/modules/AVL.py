@@ -45,13 +45,20 @@ class NodoArbol:
             self.__hijoDerecho.padre = self
         
     @property
-    
     def clave(self):
         return self.__clave
+
+    @clave.setter
+    def clave(self,nueva_clave):
+        self.__clave = nueva_clave
 
     @property
     def cargaUtil(self):
         return self.__cargaUtil
+
+    @cargaUtil.setter
+    def cargaUtil(self, nueva_carga):
+        self.__cargaUtil = nueva_carga
 
     @property
     def hijoIzquierdo(self):
