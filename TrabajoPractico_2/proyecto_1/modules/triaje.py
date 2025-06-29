@@ -1,8 +1,8 @@
 # archivo: triaje.py
 
 import msvcrt
-from . coladeprioridad import ColaDePrioridad
-from . import paciente as pac 
+from modules.coladeprioridad import ColaDePrioridad
+from modules import paciente as pac 
 
 class SalaEmergencia:
     """SalaEmergencia: administra una cola de acuerdo a la prioridad y el orden de llegada"""
